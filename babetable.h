@@ -66,7 +66,8 @@ public:
     void  populatePlaylist(QStringList urls, QString playlist);
 
     QStringList playlistsMenus;
-    QStringList colors = {"#f0ff01","#01ff5b","#3daefd","#b401ff","#ed1515"};
+    QStringList colors = {"#F0FF01","#01FF5B","#3DAEFD","#B401FF","#E91E63"};
+
     QMap<QString, QString> getKdeConnectDevices();
 
 

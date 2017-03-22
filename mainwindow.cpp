@@ -1,19 +1,20 @@
-/* Copyright 2017 Camilo Higuita(milohr)
-*
-* This file is part of Babe Qt Music Player.
-*
-* Babe is free software: you can redistribute it
-* and/or modify it under the terms of version 3 of the
-* GNU General Public License as published by the Free Software Foundation.
-*
-* Babe is distributed in the hope that it will be
-* useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
-* Public License for more details.
-*
-* You should have received a copy of the GNU General Public License along
-* with Babe. If not, see http://www.gnu.org/licenses/.
-*/
+/*
+   Babe - tiny music player
+   Copyright (C) 2017  Camilo Higuita
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation; either version 3 of the License, or
+   (at your option) any later version.
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+   You should have received a copy of the GNU General Public License
+   along with this program; if not, write to the Free Software Foundation,
+   Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA
+
+   */
+
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
@@ -314,7 +315,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     album_art_frame->setFrameShadow(QFrame::Raised);
     album_art_frame->setFrameShape(QFrame::StyledPanel);
-
+    
     album_art = new Album(":Data/data/babe.png",200,0,true,false,album_art_frame);
 
     connect(album_art,SIGNAL(playAlbum(QString , QString)),this,SLOT(putOnPlay(QString, QString)));
@@ -416,9 +417,9 @@ MainWindow::MainWindow(QWidget *parent) :
     //ui->refreshBtn->setStyleSheet("QToolButton::menu-indicator { image: none; }");
     auto clearIt = new QAction("Clear list...");
     refreshBtn_menu->addAction(clearIt);
-    auto unBabeItAll = new QAction("Un-Babe all...", refreshBtn_menu);
+    auto unBabeItAll = new QAction("Save as playlist...");
     refreshBtn_menu->addAction(unBabeItAll);
-    auto changeIt = new QAction("Change Playlist...", refreshBtn_menu);
+    auto changeIt = new QAction("Change Playlist...");
     refreshBtn_menu->addAction(changeIt);
 
     //connect(saveResults_menu, SIGNAL(triggered(QAction*)), this, SLOT(saveResultsTo(QAction*)));
