@@ -81,3 +81,54 @@ QString TagInfo::getGenre() {
 QString TagInfo::fileName() {
     return BaeUtils::getNameFromLocation(path);
 }
+
+QString TagInfo::getDuration()
+{
+
+}
+
+QString TagInfo::getComment()
+{
+    return QString::fromStdWString(file.tag()->comment().toWString()).size() > 0
+            ? QString::fromStdWString(file.tag()->genre().toWString())
+            : "UNKNOWN";
+}
+
+void TagInfo::setComment(QString comment)
+{
+
+    this->file.tag()->setComment(comment.toStdString());
+    this->file.save();
+
+}
+
+void TagInfo::setAlbum(QString album)
+{
+    this->file.tag()->setAlbum(album.toStdString());
+    this->file.save();
+
+}
+
+void TagInfo::setTitle(QString title)
+{
+    this->file.tag()->setTitle(title.toStdString());
+    this->file.save();
+}
+
+void TagInfo::setTrack(int track)
+{
+    this->file.tag()->setTrack(static_cast<unsigned int>(track));
+    this->file.save();
+}
+
+void TagInfo::setArtist(QString artist)
+{
+    this->file.tag()->setArtist(artist.toStdString());
+    this->file.save();
+}
+
+void TagInfo::setGenre(QString genre)
+{
+    this->file.tag()->setGenre(genre.toStdString());
+    this->file.save();
+}

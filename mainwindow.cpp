@@ -34,7 +34,7 @@ MainWindow::MainWindow(QWidget *parent) :
     this->setWindowIcon(QIcon(":Data/data/babe_48.svg"));
     this->setWindowIconText("Babe...");
 
-    // mpris = new Mpris(this);
+    mpris = new Mpris(this);
     //mpris->updateCurrentSong( );
 
     timer = new QTimer(this);

@@ -18,6 +18,15 @@ public:
     int getTrack();
     QString getGenre();
     QString fileName();
+    QString getComment();
+    QString getDuration();
+
+    void setAlbum(QString album);
+    void setTitle(QString title);
+    void setTrack(int track);
+    void setArtist(QString artist);
+    void setGenre(QString genre);
+    void setComment(QString comment);
     void writeData();
 
 
