@@ -173,6 +173,8 @@ void InfoView::getTrackInfo(QString title, QString artist, QString album)
         if(!title.isEmpty())
         {
             lyrics->setData(artist,title);
+            ui->artistLine->setText(artist);
+            ui->titleLine->setText(title);
         }
     }
 }

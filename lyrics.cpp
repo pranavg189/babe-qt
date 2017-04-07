@@ -30,8 +30,6 @@ Lyrics::Lyrics(QObject *parent) : QObject(parent)
 void Lyrics::setData(QString artist, QString song)
 {
 
-
-
     this->artist= BaeUtils::fixString(artist);
     this->song = BaeUtils::fixString(song);
     QUrl q_artist (artist);

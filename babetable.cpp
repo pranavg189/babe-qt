@@ -205,7 +205,7 @@ void BabeTable::addToPlaylist(QAction *action) {
             this->model()->data(this->model()->index(rRow, LOCATION)).toString();
 
     if (playlist.contains("Create new...")) {
-        qDebug() << "trying to create a new playlistsssss" << playlist;
+        qDebug() << "trying to create a new playlist" << playlist;
 
         emit createPlaylist_clicked();
     } else {
@@ -213,28 +213,30 @@ void BabeTable::addToPlaylist(QAction *action) {
     }
 }
 
-void BabeTable::populatePlaylist(QStringList urls, QString playlist) {
+void BabeTable::populatePlaylist(QStringList urls, QString playlist)  //this needs to get fixed
+{
 
-    for (auto location : urls) {
-        if (connection->checkQuery("SELECT * FROM tracks WHERE location = \"" +
-                                   location + "\"")) {
-            // ui->fav_btn->setIcon(QIcon::fromTheme("face-in-love"));
-            qDebug() << "Song to add: " << location << " to: " << playlist;
+    for (auto location : urls)
+    {
 
-            QSqlQuery query = connection->getQuery(
-                        "SELECT * FROM tracks WHERE location = \"" + location + "\"");
+        // ui->fav_btn->setIcon(QIcon::fromTheme("face-in-love"));
+        qDebug() << "Song to add: " << location << " to: " << playlist;
 
-            QString list;
-            while (query.next())
-                list = query.value(PLAYLIST).toString();
-            list += " " + playlist;
-            // qDebug()<<played;
+        QSqlQuery query = connection->getQuery(
+                    "SELECT * FROM tracks WHERE location = \"" + location + "\"");
 
-            if (connection->insertInto("tracks", "playlist", location, list)) {
-                // ui->fav_btn->setIcon(QIcon(":Data/data/love-amarok.svg"));
-                qDebug() << list;
-            }
+        QString list;
+        while (query.next())
+            list = query.value(PLAYLIST).toString();
+        list += " " + playlist;
+        // qDebug()<<played;
+
+        if (connection->insertInto("tracks", "playlist", location, list))
+        {
+            // ui->fav_btn->setIcon(QIcon(":Data/data/love-amarok.svg"));
+            qDebug() << list;
         }
+
     }
 }
 
@@ -807,7 +809,7 @@ void BabeTable::infoIt_action()
     QString artist = this->model()->data(this->model()->index(rRow, ARTIST)).toString();
     QString album = this->model()->data(this->model()->index(rRow, ALBUM)).toString();
     QString title = this->model()->data(this->model()->index(rRow, TITLE)).toString();
-    emit infoIt_clicked(title, artist,album);
+    emit infoIt_clicked(title, artist, album);
 }
 
 void BabeTable::removeIt_action()

@@ -21,7 +21,6 @@
 
 
 
-
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -34,7 +33,8 @@ MainWindow::MainWindow(QWidget *parent) :
     this->setWindowIcon(QIcon(":Data/data/babe_48.svg"));
     this->setWindowIconText("Babe...");
 
-    mpris = new Mpris(this);
+
+    //mpris = new Mpris(this);
     //mpris->updateCurrentSong( );
 
     timer = new QTimer(this);
@@ -56,8 +56,7 @@ MainWindow::MainWindow(QWidget *parent) :
     frame->setFrameShape(QFrame::StyledPanel);
     frame->setFrameShadow(QFrame::Raised);
 
-    settings_widget = new settings(this); //this needs to go fist
-    queueTable = new BabeTable(this);
+    settings_widget = new settings(this); //this needs to go first
 
 
     playlistTable = new PlaylistsView(this);
@@ -65,7 +64,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(playlistTable->table,SIGNAL(tableWidget_doubleClicked(QList<QStringList>)),this,SLOT(addToPlaylist(QList<QStringList>)));
     connect(playlistTable->table,SIGNAL(removeIt_clicked(int)),this,SLOT(removeSong(int)));
     connect(playlistTable->table,SIGNAL(babeIt_clicked(QList<QStringList>)),this,SLOT(babeIt(QList<QStringList>)));
-    connect(playlistTable->table,SIGNAL(createPlaylist_clicked()),this,SLOT(playlistsView()));
+    //connect(playlistTable->table,SIGNAL(createPlaylist_clicked()),this,SLOT(playlistsView()));
     connect(playlistTable->table,SIGNAL(queueIt_clicked(QString)),this,SLOT(addToQueue(QString)));
     connect(playlistTable->table,SIGNAL(moodIt_clicked(QString)),playlistTable,SLOT(createMoodPlaylist(QString)));
     connect(playlistTable->table,SIGNAL(infoIt_clicked(QString, QString, QString)),this,SLOT(infoIt(QString, QString, QString)));
@@ -110,6 +109,14 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(resultsTable,SIGNAL(queueIt_clicked(QString)),this,SLOT(addToQueue(QString)));
     connect(resultsTable,SIGNAL(moodIt_clicked(QString)),playlistTable,SLOT(createMoodPlaylist(QString)));
     connect(resultsTable,SIGNAL(infoIt_clicked(QString, QString, QString)),this,SLOT(infoIt(QString, QString, QString)));
+
+
+    queueTable = new BabeTable(this);
+    queueTable->setSortingEnabled(false);
+    connect(queueTable,SIGNAL(babeIt_clicked(QList<QStringList>)),this,SLOT(babeIt(QList<QStringList>)));
+    connect(queueTable,SIGNAL(removeIt_clicked(int)),this,SLOT(removeSong(int)));
+    connect(queueTable,SIGNAL(moodIt_clicked(QString)),playlistTable,SLOT(createMoodPlaylist(QString)));
+    connect(queueTable,SIGNAL(infoIt_clicked(QString, QString, QString)),this,SLOT(infoIt(QString, QString, QString)));
 
 
     albumsTable = new AlbumsView(false,this);
@@ -423,8 +430,10 @@ MainWindow::MainWindow(QWidget *parent) :
     refreshBtn_menu->addAction(changeIt);
 
     //connect(saveResults_menu, SIGNAL(triggered(QAction*)), this, SLOT(saveResultsTo(QAction*)));
-    connect(clearIt, SIGNAL(triggered()), mainList, SLOT(flushTable()));
-
+    connect(clearIt, &QAction::triggered, [this]() {
+        this->mainList->flushTable();
+        lCounter=-1;
+    });
 
     /*LOAD THE STYLE*/
     const QString stylePath= BaeUtils::getSettingPath();
