@@ -67,26 +67,26 @@ In Chrome/mium go to chrome://extensions/, then enable the Developer mode check 
 ![alt tag](https://raw.githubusercontent.com/milohr/babe-qt/master/screenshots/playlist_mode.png)
 
 
-![alt tag] (https://raw.githubusercontent.com/milohr/babe-qt/master/screenshots/mini_mode.png)
+![alt tag](https://raw.githubusercontent.com/milohr/babe-qt/master/screenshots/mini_mode.png)
 
 
-![alt tag] (https://raw.githubusercontent.com/milohr/babe-qt/master/screenshots/collection_view.png)
+![alt tag](https://raw.githubusercontent.com/milohr/babe-qt/master/screenshots/collection_view.png)
 
 
-![alt tag] (https://raw.githubusercontent.com/milohr/babe-qt/master/screenshots/albums_view.png) 
+![alt tag](https://raw.githubusercontent.com/milohr/babe-qt/master/screenshots/albums_view.png) 
 
 
-![alt tag] (https://raw.githubusercontent.com/milohr/babe-qt/master/screenshots/artists_view.png) 
+![alt tag](https://raw.githubusercontent.com/milohr/babe-qt/master/screenshots/artists_view.png) 
 
 
-![alt tag] (https://raw.githubusercontent.com/milohr/babe-qt/master/screenshots/playlists_view.png) 
+![alt tag](https://raw.githubusercontent.com/milohr/babe-qt/master/screenshots/playlists_view.png) 
 
 
-![alt tag] (https://raw.githubusercontent.com/milohr/babe-qt/master/screenshots/settings_view.png) 
+![alt tag](https://raw.githubusercontent.com/milohr/babe-qt/master/screenshots/settings_view.png) 
 
 
-![alt tag] (https://raw.githubusercontent.com/milohr/babe-qt/master/screenshots/about_view.png) 
+![alt tag](https://raw.githubusercontent.com/milohr/babe-qt/master/screenshots/about_view.png) 
 
 
-![alt tag] (https://raw.githubusercontent.com/milohr/babe-qt/master/screenshots/chromium_extension.png) 
+![alt tag](https://raw.githubusercontent.com/milohr/babe-qt/master/screenshots/chromium_extension.png) 
 
