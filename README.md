@@ -76,7 +76,7 @@ In Chrome/mium go to chrome://extensions/, then enable the Developer mode check 
 ![alt tag] (https://raw.githubusercontent.com/milohr/babe-qt/master/screenshots/collection_view.png)
 
 <h3> Albums View </h3>
-![alt tag] (https://github.com/milohr/babe-qt/blob/master/screenshots/albums_view.png) 
+![alt tag] (https://raw.githubusercontent.com/milohr/babe-qt/master/screenshots/albums_view.png) 
 
 <h3> Artists View </h3>
 ![alt tag] (https://raw.githubusercontent.com/milohr/babe-qt/master/screenshots/artists_view.png) 
