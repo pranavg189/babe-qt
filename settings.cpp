@@ -338,50 +338,36 @@ void settings::removeSettings(QStringList setting) {
     }
 }
 
-void settings::addToWatcher(QStringList paths) {
-
+void settings::addToWatcher(QStringList paths)
+{
     qDebug()<<"duplicated paths in watcher removd: "<<paths.removeDuplicates();
 
-    //for(auto path:paths) qDebug() << "Adding to watcher -dir:"<< path;
-
-    // watcher->addPath(path);
     if(!paths.isEmpty()) watcher->addPaths(paths);
-
-    // connect(watcher,SIGNAL((QString)),this,SLOT(handleFileChanged(QString)));
 }
 
 void settings::collectionWatcher()
-
 {
     QSqlQuery query = collection_db.getQuery("SELECT * FROM tracks");
     while (query.next())
     {
-        if(!query.value(CollectionDB::LOCATION).toString().contains(youtubeCachePath))
+        QString location = query.value(CollectionDB::LOCATION).toString();
+        if(!location.contains(youtubeCachePath)) //exclude the youtube cache folder
         {
-            if (!dirs.contains(QFileInfo(query.value(CollectionDB::LOCATION).toString()).dir().path())&&QFileInfo(query.value(CollectionDB::LOCATION).toString()).exists())
+            if (!dirs.contains(QFileInfo(location).dir().path()) && BaeUtils::fileExists(location)) //check if parent dir isn't already in list and it exists
             {
-
-                QString dir =QFileInfo(query.value(CollectionDB::LOCATION).toString()).dir().path();
-
+                QString dir =QFileInfo(location).dir().path();
                 dirs << dir;
-                //qDebug()<<"adding to dirs::1/"<<dir;
-                QDirIterator it(dir,QDir::Dirs | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
+
+                QDirIterator it(dir, QDir::Dirs | QDir::NoDotAndDotDot, QDirIterator::Subdirectories); // get all the subdirectories to watch
                 while (it.hasNext())
                 {
                     QString subDir = it.next();
+                    subDir = QFileInfo(subDir).path();
 
-                    subDir=QFileInfo(subDir).path();
-                    //qDebug()<<"the subDir:"<<subDir;
-
-                    if(QFileInfo(subDir).isDir()&&QFileInfo(subDir).exists())
-                    {
-                        //QDir dir = new QDir(url.path());
+                    if(QFileInfo(subDir).isDir())
                         if(!dirs.contains(subDir))
-                        {
                             dirs <<subDir;
-                            //qDebug()<<"adding to dirs::2/"<<dir;
-                        }
-                    }
+
                 }
 
             }
@@ -445,26 +431,30 @@ void settings::readSettings() {
 }
 
 bool settings::checkCollection() {
-    // QString collection_db_path="collection.db";
-    QFileInfo check_db(collectionDBPath + collectionDBName);
-    if (check_db.exists()) {
+
+
+    if (BaeUtils::fileExists(collectionDBPath + collectionDBName))
+    {
         qDebug() << "The CollectionDB does exists.";
-        // collection_db.setCollectionDB(collection_db_path);
-        // qDebug()<<"Ahora obtener la informacion de ella y populate tableView";
-        // populateTableView();
-        collection_db.openCollection(collectionDBPath + collectionDBName);
 
+        collection_db.openCollection(collectionDBPath + collectionDBName);
         collectionWatcher();
+
         return true;
-    } else {
-        qDebug() << "The CollectionDB doesn't exists. Going to create the database "
-                    "and tables";
 
-        collection_db.openCollection(collectionDBPath + collectionDBName);
-        collection_db.prepareCollectionDB();
+    } else { return false; }
 
-        return false;
-    }
+}
+
+
+void settings::createCollectionDB()
+{
+    qDebug() << "The CollectionDB doesn't exists. Going to create the database "
+                "and tables";
+
+    collection_db.openCollection(collectionDBPath + collectionDBName);
+    collection_db.prepareCollectionDB();
+
 }
 
 void settings::populateDB(QString path) {

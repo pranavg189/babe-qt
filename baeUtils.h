@@ -39,6 +39,7 @@ static inline QString getYoutubeCachePath() { return QStandardPaths::writableLoc
 static inline QString getExtensionFetchingPath() { return QStandardPaths::writableLocation(QStandardPaths::DownloadLocation); }
 static inline QString getNotifyDir(){return QStandardPaths::writableLocation(QStandardPaths::ConfigLocation);}
 
+
 static inline QString fixTitle(QString title,QString s,QString e)
 {
     QString newTitle;

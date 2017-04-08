@@ -27,8 +27,6 @@
 #include "artwork.h"
 
 
-
-
 namespace Ui {
 class settings;
 }
@@ -45,18 +43,22 @@ public:
     const QString settingPath= BaeUtils::getSettingPath();
     const QString collectionDBPath=BaeUtils::getCollectionDBPath();
     const QString cachePath=BaeUtils::getCachePath();
-    const  QString youtubeCachePath=BaeUtils::getYoutubeCachePath();
-    QString extensionFetchingPath=BaeUtils::getExtensionFetchingPath();
+    const QString youtubeCachePath=BaeUtils::getYoutubeCachePath();
+    const QString extensionFetchingPath=BaeUtils::getExtensionFetchingPath();
+
     bool checkCollection();
+    void createCollectionDB();
     CollectionDB &getCollectionDB();
+
     int getToolbarIconSize()  {return iconSize;}
-    QStringList getCollectionPath() {return collectionPaths;}
+
     void setSettings(QStringList setting);
     void readSettings();
     void removeSettings(QStringList setting);
     void refreshCollectionPaths();
     void collectionWatcher();
     void addToWatcher(QStringList paths);
+    QStringList getCollectionPath() {return collectionPaths;}
     CollectionDB collection_db;
     bool youtubeTrackDone=false;
 

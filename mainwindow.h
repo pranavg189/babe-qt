@@ -56,7 +56,7 @@ public:
     void setStyle();
     void updateList();
     void populateMainList();
-void clearCurrentList();
+    void clearCurrentList();
 
     enum views
     {
@@ -127,8 +127,7 @@ private slots:
     void on_settings_view_clicked();
     void orderTables();
     void on_rowInserted(QModelIndex model ,int x,int y);
-    void showAlbumViewUtils();
-    void hideAlbumViewUtils();
+
     void AlbumsViewOrder(QString order);
     void refreshTables();
     void addToPlayed(QString url);
@@ -155,20 +154,32 @@ private:
 
     Ui::MainWindow *ui;
     Notify nof;
+    const QString stylePath = BaeUtils::getSettingPath()+"style.qss";
+
+
     ArtWork *coverArt;
     ArtWork *artistHead;
 
     Mpris *mpris;
+
     void keepOnTop(bool state);
     void setUpViews();
+    void setUpWidgets();
+    void setUpSidebar();
+    void setUpCollectionViewer();
+    void setUpPlaylist();
+
     void loadTrack();
     void loadTrackOnQueue();
-    int getIndex();
+
     void next();
     void back();
     void shufflePlaylist();
     void expand();
     void go_mini();
+
+    int getIndex();
+
     QFrame *frame;
     QFrame *line;
     QFrame *lineV;
@@ -203,7 +214,7 @@ private:
     QList<QStringList> currentList;
     QStringList queue_list;
     QMediaPlayer *player = new QMediaPlayer();
-   QTimer *updater = new QTimer(this);
+    QTimer *updater = new QTimer(this);
     QString current_song_url;
     QString current_title;
     QString current_album;

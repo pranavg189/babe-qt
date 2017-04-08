@@ -64,6 +64,18 @@ void CollectionDB::openCollection(QString path)
     }
 }
 
+
+void CollectionDB::prepareCollectionDB()
+{
+    QSqlQuery query;
+    query.exec("CREATE TABLE tracks(track integer, title text, artist text, album text, genre text, location text unique, stars integer, babe integer, art text, played integer, playlist text);");
+    query.exec("CREATE TABLE albums(title text, artist text, art text, location text);");
+    query.exec("CREATE TABLE playlists(title text, art text unique);");
+    query.exec("CREATE TABLE artists(title text, art text, location text);");
+
+    //query.exec("CREATE TABLE tracks(title text, album text, artist text, location text, stars integer, babe integer);");
+}
+
 void CollectionDB::removePath(QString path)
 {
 
@@ -163,16 +175,8 @@ void CollectionDB::cleanCollectionLists()
 
 }
 
-void CollectionDB::prepareCollectionDB()
-{
-    QSqlQuery query;
-    query.exec("CREATE TABLE tracks(track integer, title text, artist text, album text, genre text, location text unique, stars integer, babe integer, art text, played integer, playlist text);");
-    query.exec("CREATE TABLE albums(title text, artist text, art text, location text);");
-    query.exec("CREATE TABLE playlists(title text, art text unique);");
-    query.exec("CREATE TABLE artists(title text, art text, location text);");
 
-    //query.exec("CREATE TABLE tracks(title text, album text, artist text, location text, stars integer, babe integer);");
-}
+
 
 QSqlQuery CollectionDB::getQuery(QString queryTxt)
 {

@@ -18,7 +18,7 @@
 
 class CollectionDB : public QObject
 {
-     Q_OBJECT
+    Q_OBJECT
 public:
 
     explicit CollectionDB();
@@ -28,7 +28,7 @@ public:
     QSqlQuery getQuery(QString queryTxt);
     bool checkQuery(QString queryTxt);
     bool insertInto(QString tableName, QString column, QString location, int value);
-        bool insertInto(QString tableName, QString column, QString location, QString value);
+    bool insertInto(QString tableName, QString column, QString location, QString value);
     void setTrackList(QList <Track>);
     void prepareCollectionDB();
     bool removeQuery(QString queryTxt);
