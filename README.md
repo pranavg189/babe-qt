@@ -66,29 +66,30 @@ In Chrome/mium go to chrome://extensions/, then enable the Developer mode check 
 ![alt tag](https://raw.githubusercontent.com/milohr/babe-music-player/master/Screenshot%20from%202016-05-01%2020%3A07%3A41.png) ![alt tag](https://raw.githubusercontent.com/milohr/babe-music-player/master/Screenshot%20from%202016-05-01%2020%3A08%3A06.png)
 
 <h3> Playlist Mode </h3>
-![alt tag] (https://github.com/milohr/babe-qt/blob/master/screenshots/playlist_mode.png) 
+
+![alt tag] (https://raw.githubusercontent.com/milohr/babe-qt/master/screenshots/playlist_mode.png) 
 
 <h3> Mini Mode </h3>
-![alt tag] (https://github.com/milohr/babe-qt/blob/master/screenshots/mini_mode.png)
+![alt tag] (https://raw.githubusercontent.com/milohr/babe-qt/master/screenshots/mini_mode.png)
 
 <h3> Collection View </h3>
-![alt tag] (https://github.com/milohr/babe-qt/blob/master/screenshots/collection_view.png)
+![alt tag] (https://raw.githubusercontent.com/milohr/babe-qt/master/screenshots/collection_view.png)
 
 <h3> Albums View </h3>
 ![alt tag] (https://github.com/milohr/babe-qt/blob/master/screenshots/albums_view.png) 
 
 <h3> Artists View </h3>
-![alt tag] (https://github.com/milohr/babe-qt/blob/master/screenshots/artists_view.png) 
+![alt tag] (https://raw.githubusercontent.com/milohr/babe-qt/master/screenshots/artists_view.png) 
 
 <h3> Playlists View </h3>
-![alt tag] (https://github.com/milohr/babe-qt/blob/master/screenshots/playlists_view.png) 
+![alt tag] (https://raw.githubusercontent.com/milohr/babe-qt/master/screenshots/playlists_view.png) 
 
 <h3> Settings View </h3>
-![alt tag] (https://github.com/milohr/babe-qt/blob/master/screenshots/settings_view.png) 
+![alt tag] (https://raw.githubusercontent.com/milohr/babe-qt/master/screenshots/settings_view.png) 
 
 <h3> About View </h3>
-![alt tag] (https://github.com/milohr/babe-qt/blob/master/screenshots/about_view.png) 
+![alt tag] (https://raw.githubusercontent.com/milohr/babe-qt/master/screenshots/about_view.png) 
 
 <h3> Chromium Extension </h3>
-![alt tag] (https://github.com/milohr/babe-qt/blob/master/screenshots/chromium_extension.png) 
+![alt tag] (https://raw.githubusercontent.com/milohr/babe-qt/master/screenshots/chromium_extension.png) 
 
