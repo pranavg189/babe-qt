@@ -1,3 +1,7 @@
+#Babe's repository has been moved to KDE Phabricator as part of the KDE Incubation process, here you can find it:
+https://phabricator.kde.org/source/babe
+
+
 # Babe
 ## Tiny Qt Babe Music Player
 
